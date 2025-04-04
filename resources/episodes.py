@@ -1,5 +1,4 @@
 from flask_restful import Resource
-from flask import jsonify
 from models import Episode
 
 class EpisodesListResource(Resource):
