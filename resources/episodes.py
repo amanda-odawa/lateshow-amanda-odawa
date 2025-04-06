@@ -11,5 +11,5 @@ class EpisodeResource(Resource):
         episode = Episode.query.get(id)
         if episode:
             return episode.to_dict_with_appearances(), 200
-        return {'error':'Episode nbot found'}, 404
+        return {'error':'Episode not found'}, 404
 

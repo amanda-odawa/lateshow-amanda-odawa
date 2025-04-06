@@ -8,7 +8,7 @@ from resources.guests import GuestsListResource
 from resources.appearances import AppearanceResource
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/lateshow.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lateshow.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)

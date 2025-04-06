@@ -18,13 +18,17 @@ class AppearanceResource(Resource):
         if not guest or not episode:
             return {'errors':'Episode or guest not found'}, 404
         
-        new_appearance = Appearance(
-            rating=rating,
-            guest_id=guest_id,
-            episode_id=episode_id
-        )
+        try:
+            new_appearance = Appearance(
+                rating=rating,
+                guest_id=guest_id,
+                episode_id=episode_id
+            )
 
-        db.session.add(new_appearance)
-        db.session.commit()
+            db.session.add(new_appearance)
+            db.session.commit()
+
+        except ValueError as error:
+            return {'errors': str(error)}, 400
 
         return new_appearance.to_dict_nested(), 201
